@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+//完整组件的创建以及使用
+
+//
+//圆角
+#bsbb() {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;}
+
+//圆角
+#radius(...) {
+  -webkit-border-radius: @arguments;
+          border-radius: @arguments;}
+
+//阴影
+#shadow(...) {
+  -webkit-box-shadow: @arguments;
+          box-shadow: @arguments;}
+
+//文字阴影	  
+#text-shadow(...) {
+  -webkit-text-shadow: @arguments;
+          text-shadow: @arguments;}
+		  										
+#transform(...){
+	-webkit-transform: @arguments;
+		      transform: @arguments;}
+	
+#transition(...) {
+ -webkit-transition: @arguments;
+         transition: @arguments;}
+         
+// Placeholder text
+#placeholder(@color: #999) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+
+//文字选择样式
+#selection(@bc, @c) { 
+  ::selection { background: @bc; color: @c; }
+  ::-moz-selection { background: @bc; color: @c; }
+}
+
+// 颜色渐变				 
+#gradient(@bg1,@bg2){
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, @bg1), color-stop(1, @bg2));
+	background:-webkit-linear-gradient(top, @bg1 5%, @bg2 100%);
+	background:linear-gradient(to bottom, @bg1 5%, @bg2 100%);
+  //filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@{bg1}', endColorstr='@{bg2}',GradientType=0);
+	background-color:@bg1;}
+	
+	

@@ -1,0 +1,112 @@
+@charset "utf-8";
+.room-hd {
+  line-height: 1.8;
+  margin-bottom: 3em;
+}
+.room-hd h2 {
+  font-size: 1.5em;
+  color: #000;
+}
+.room-nav {
+  margin-bottom: 2em;
+}
+.room-nav a {
+  color: #666;
+}
+.room-nav a + a {
+  margin-left: 1em;
+}
+.room-nav a.on {
+  color: #f00;
+}
+.room-list {
+  padding-bottom: 4em;
+}
+.room-list li {
+  margin-bottom: 1em;
+}
+.room-list .s_hd {
+  display: block;
+  margin-bottom: 0.5em;
+}
+.room-list .s_hd img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  max-width: 480px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+.room-list .s_ft {
+  line-height: 3em;
+}
+.room-list strong {
+  color: #f00;
+}
+.room-swiper {
+  height: 276px;
+  margin-bottom: 3em;
+}
+.order-info {
+  margin-bottom: 2em;
+}
+.order-info strong {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 1em;
+  color: #333;
+}
+.order-info p {
+  line-height: 2;
+  text-align: justify;
+}
+.order-submit {
+  line-height: 3em;
+}
+.order-submit strong {
+  color: #f00;
+}
+.card-note textarea {
+  width: 100%;
+  height: 5em;
+}
+.order-detail .int-time {
+  width: 70%;
+}
+.order-detail .int-nights {
+  width: 30%;
+}
+.room-add {
+  margin: 2em 0;
+}
+.news-list .new {
+  margin-bottom: 4%;
+}
+.new {
+  border: 1px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 2% 4%;
+  font-size: 12px;
+}
+.new i,
+.new span,
+.new a {
+  display: block;
+}
+.new i {
+  color: #999;
+}
+.new h3 {
+  font-size: 2em;
+  color: #333 ;
+  line-height: 1.5;
+}
+.new a {
+  color: #333;
+}
+.new a span {
+  border-top: 1px solid #ddd;
+  margin-top: 0.5em;
+}

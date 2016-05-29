@@ -1,0 +1,175 @@
+@charset "utf-8";
+//  属性类
+//  27组件的最基本的类，以后所有的组件都是基于这个类
+//  
+//  此命名规则用于不暴露到css中的属性集合
+
+// 单属性
+// [命名规则]属性名和值之间去掉短横线，去掉冒号，直接相连
+
+//  属性和属性之间之间用驼峰的方式隔开
+//  #tL(@t, @l) { top: @t; left: @l; }
+//  当两个参数值相同时，只需传递一个参数
+//  #tL(@v) { top: @v; left: @v; }
+//  当遇到两属性前缀一样则可以连写
+//  #pl(@v) { padding-left: @v; }
+//  #pr(@v) { padding-right: @v; }
+//  #plR(@pl, @pr) { #pl(@pl); #pr(@pr); }
+//  来点更酷炫的, 进一步的缩写
+//  #paTl(@t, @l) { #pa; top: @t; left: @l; }
+//  
+//  总结:去掉短横线, 空格变驼峰，相同前缀合并
+
+
+// 单属性========================================= 
+// [命名规则]属性名和值之间去掉短横线，去掉冒号，直接相连
+#dn() { display: none; }
+#di() { display: inline; }
+#db() { display: block; }
+#dib() { display: inline-block; }
+#fl() { float: left; }
+#fr() { float: right; }
+#cb() { clear: both; }
+#pr() { position: relative; }
+#pa() { position: absolute; }
+#pr() { position: fixed; }
+#cp() { cursor: pointer; }
+#oh() { overflow: hidden; }
+#oa() { overflow: auto; }
+#vh() { visibility: hidden; }
+#vv() { visibility: visible; }
+#wsn() { white-space: nowrap; }
+#wwbw() { word-wrap: break-word; }
+#vam() { vertical-align: middle; }
+#vab() { vertical-align: bottom; }
+#vat() { vertical-align: top; }
+#fwn() { font-weight: normal; }
+#fwb() { font-weight: bold; }
+#fsi() { font-style: italic; }
+#fsn() { font-style: normal; }
+#tac() { text-align: center; }
+#tar() { text-align: right; }
+#tal() { text-align: left; }
+#taj() { text-align: justify; }
+#z() { *zoom: 1; }
+#t(@v) { top: @v; }
+#r(@v) { right: @v; }
+#b(@v) { bottom: @v; }
+#c(@v) { color: @v; }
+#l(@v) { left: @v; }
+#h(@v) { height: @v; }
+#w(@v) { width: @v; }
+#bt(@v) { border-top: @v; }
+#br(@v) { border-right: @v; }
+#bb(@v) { border-bottom: @v; }
+#bl(@v) { border-left: @v; }
+#ff(@v) { font-family: @v; }
+// 与#fs(@v) { font-style: @v; } 冲突，所以去掉这个不常用的
+#fs(@v) { font-size: @v; }
+#lh(@v) { line-height: @v; }
+#mb(@v) { margin-bottom: @v; }
+#ml(@v) { margin-left: @v; }
+#mr(@v) { margin-right: @v; }
+#mt(@v) { margin-top: @v; }
+#pb(@v) { padding-bottom: @v; }
+#pl(@v) { padding-left: @v; }
+#pr(@v) { padding-right: @v; }
+#pt(@v) { padding-top: @v; }
+#bg(@v) { background: @v; }
+#bc(@v) { background-color: @v; }
+#bi(@v) { background-image: url(@v); }
+#bp(@x, @y) { background-position: @x @y; }
+// 多属性=========================================
+// [命名规则]属性属性之间用驼峰分开
+
+// @bc:background-color; @c:color;
+#bcC(@bc, @c) { #bc(@bc); #c(@c); }
+#cBc(@c, @bc) { #bc(@bc); #c(@c); }
+
+// @h:height; @w:width; @lh:line-hight
+#hW(@h, @w) { #h(@h); #w(@w); }
+#wH(@w, @h) { #h(@h); #w(@w); }
+#hLh(@h, @lh) { #h(@h); #lh(@lh); }
+#wHlh(@w, @h, @lh) { #hW(@h, @w); #lh(@lh); }
+#hWlh(@h, @w, @lh) { #hW(@h, @w); #lh(@lh); }
+#wHlh(@w, @h) { #wHlh(@w, @h, @h); }
+#wHlh(@v) { #wHlh(@v,@v,@v); }
+#hW(@v) { #hW(@v, @v); }
+#wH(@v) { #wH(@v, @v); }
+#hLh(@v) { #hLh(@v, @v); }
+// @t:top; @l:left; @r:right; @b:bottom;
+#tL(@t, @l) { #t(@t); #l(@l); }
+#lT(@l, @t) { #t(@t); #l(@l); }
+#tR(@t, @r) { #t(@t); #r(@r); }
+#rT(@r, @t) { #t(@t); #r(@r); }
+#bL(@b, @l) { #b(@b); #l(@l); }
+#lB(@l, @b) { #b(@b); #l(@l); }
+#bR(@b, @r) { #b(@b); #r(@r); }
+#rB(@r, @b) { #b(@b); #r(@r); }
+#tL(@v) { #tL(@v, @v); }
+#lT(@v) { #tL(@v, @v); }
+#tR(@v) { #tR(@v, @v); }
+#rT(@v) { #tR(@v, @v); }
+#bL(@v) { #bL(@v, @v); }
+#lB(@v) { #lB(@v, @v); }
+#bR(@v) { #bR(@v, @v); }
+#rB(@v) { #rB(@v, @v); }
+
+//@ml: margin-left; @mr:margin-right; @mt:margin-top; @mb:margin-bottom;
+#mlR(@ml, @mr) { #ml(@ml); #mr(@mr); }
+#mtB(@mt, @mb) { #mt(@mt); #mb(@mb); }
+#mtL(@mt, @ml) { #mt(@mt); #ml(@ml); }
+#mtR(@mt, @mr) { #mt(@mt); #mr(@mr); }
+#mrB(@mr, @mb) { #mr(@mr); #mb(@mb); }
+#plR(@pl, @pr) { #pl(@pl); #pr(@pr); }
+#ptB(@pt, @pb) { #pt(@pt); #pb(@pb); }
+#ptL(@pt, @pl) { #pt(@pt); #pl(@pl); }
+#mlR(@v) { #mlR(@v, @v); }
+#mtB(@v) { #mtB(@v, @v); }
+#mrB(@v) { #mrB(@v, @v); }
+#mtL(@v) { #mtL(@v, @v); }
+#mtR(@v) { #mtR(@v, @v); }
+#plR(@v) { #plR(@v, @v); }
+#ptB(@v) { #ptB(@v, @v); }
+#ptL(@v) { #ptL(@v, @v); }
+
+// @t:top; @l:left; @r:right; @b:bottom;
+#paTl(@t, @l) { #pa; #tL(@t, @l); }
+#paTr(@t, @r) { #pa; #tR(@t, @r); }
+#paBl(@b, @l) { #pa; #bL(@b, @l); }
+#paBr(@b, @r) { #pa; #bR(@b, @r); }
+#pfTl(@t, @l) { #pf; #tL(@t, @l); }
+#pfTr(@t, @r) { #pf; #tR(@t, @r); }
+#pfBl(@b, @l) { #pf; #bL(@b, @l); }
+#pfBr(@b, @r) { #pf; #bR(@b, @r); }
+#prTl(@t, @l) { #pr; #tL(@t, @l); }
+#prTr(@t, @r) { #pr; #tR(@t, @r); }
+#prBl(@b, @l) { #pr; #bL(@b, @l); }
+#prBr(@b, @r) { #pr; #bR(@b, @r); }
+#paTl(@v) { #paTl(@v, @v); }
+#paTr(@v) { #paTr(@v, @v); }
+#paBl(@v) { #paBl(@v, @v); }
+#paBr(@v) { #paBr(@v, @v); }
+#pfTl(@v) { #pfTl(@v, @v); }
+#pfTr(@v) { #pfTr(@v, @v); }
+#pfBl(@v) { #pfBl(@v, @v); }
+#pfBr(@v) { #pfBr(@v, @v); }
+#prTl(@v) { #prTl(@v, @v); }
+#prTr(@v) { #prTr(@v, @v); }
+#prBl(@v) { #prBl(@v, @v); }
+#prBr(@v) { #prBr(@v, @v); }
+
+//some thing more cool
+
+//这个可以用来山下左右垂直居中
+#paTlHwMtMl(@t, @l, @h, @w, @mt, @ml) { #hW(@h, @w); #paTl(@t, @l); #mtL(@mt, @ml); }
+
+//水平垂直居中
+#paTlWml(@t, @l, @w, @ml) { #w(@w); #paTl(@t, @l); #ml(@ml);  }
+
+
+
+
+
+
+

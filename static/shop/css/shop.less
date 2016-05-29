@@ -1,0 +1,58 @@
+@charset "utf-8";
+@import "../../27less/_27.style.less";
+/*商品列表*/
+.shop-list{
+	font-size: 0;
+	li{ display: inline-block; width: 50%; font-size: 14px; vertical-align: top; }
+	a{
+		border:1px solid #ddd; #radius(5px); padding: 5px; margin: 0 2px 4px;
+		img{ height: auto; display: block; margin: 0 auto 10px;}
+		&,img,span,del,strong{ display: block;}
+		span,del,strong{ margin-left: 0.5em; }
+		span,del{ color: #333; }
+		span{ margin-bottom: 1em;}
+		strong{ color: #a94442; }
+	}
+}
+/*风物切换*/
+.fw-swipper{
+	height: 270px; overflow:hidden;
+	img{ height: 270px;}
+}
+/*风物详情*/
+.fw-detail{
+	color: #333;
+	hr{ border:none 0;  border-bottom: 1px solid #ddd; margin:1.5em 0;  height: 0; }
+}
+/*风物介绍*/
+.fw-intro{
+	h3{ font-size: 18px; margin-bottom: 0.5em; }
+	strong{ font-size: 18px; color: #a94442; }
+	span + span, strong + span, del + strong{ margin-left: 1em; }
+}
+/*风物介绍*/
+.fw-other{ color: #666;
+	h4{ border-bottom: 1px solid #ddd; padding-bottom: 0.5em; margin-bottom: 0.5em; }
+	.s_bd{
+		overflow-x: auto;
+	}
+	p{ width: 540px; padding: 5px 0;
+		img{ height: 50px; width: auto; margin: 0 2px 8px; vertical-align: top;}
+	}
+}
+/*风物搜索*/
+.search{ padding-top: 1em;
+	h2{font-size: 1.8em; margin-bottom: 1em; line-height: 1.5;}
+	label{ text-align: right; }
+}
+/*联系我们*/
+.contact-hd{
+	color: #333;
+	line-height: 1.5;
+	padding-top: 1em;
+	h2{ font-size: 1.5em; margin-bottom: 0.5em; }
+}
+.contact-date{
+	.int-f{ width: 80%; }
+	.int-l{ width: 20%; }
+}

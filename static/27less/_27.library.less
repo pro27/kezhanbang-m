@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+
+//attribute属性类的拓展同样不会暴露在CSS中
+//语义化的属性类
+//所有类名必须具有语义化便于以后使用
+
+// 清除浮动====================================
+#clearfix(){	
+	&:after{ display: table; content: ''; clear: both; }
+    *zoom: 1;    
+}
+
+//强制换行
+#breakLine(){  white-space: pre-wrap; word-break: break-all; word-wrap: break-word; }
+
+//ico
+#ico(){ display:inline-block; text-align:center; background-repeat:no-repeat; vertical-align:middle; }
+#btn(){	display: inline-block; vertical-align: middle; text-align: center; }
+
+//table1border
+#t1b(@bc){
+	border:1px solid @bc;
+	border-width:1px 0 0 1px;
+	td,th{ border:1px solid @bc; border-width:0 1px 1px 0; }		
+}
+
+//css angel @c:color; @w:width; @h:height;
+#angleR(@c,@w,@h){
+	border-top:@h dashed transparent; 
+	border-bottom:@h dashed transparent;
+	border-left: @w solid @c; 
+}
+#angleR(@c,@w){
+	#angleR(@c,@w,@w);
+}
+#angleL(@c,@w,@h){
+	border-top:@h dashed transparent; 
+	border-bottom:@h dashed transparent;
+	border-right: @w solid @c; 
+}
+#angleL(@c,@w){
+	#angleL(@c,@w,@w);
+}
+#angleT(@c,@h,@w){
+	border-left:@w dashed transparent; 
+	border-right:@w dashed transparent;
+	border-top: @h solid @c; 
+}
+#angleT(@c,@h){
+	#angleT(@c,@h,@h);
+}
+#angleB(@c,@h,@w){
+	border-left:@w dashed transparent; 
+	border-right:@w dashed transparent;
+	border-bottom: @h solid @c; 
+}
+#angleB(@c,@h){
+	#angleB(@c,@h,@h);
+}
+
+//rgba创建兼容IE的rgba
+#rgba(@r,@g,@b,@a){
+	@c: rgba(@r,@g,@b,@a); 
+	@c2 :argb(@c);
+	/* for IE9 IE8 IE7 not sure about IE6*/
+	filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='@{c2}', endColorstr='@{c2}')";
+	background-color:@c;
+	:root &{
+		/* 
+		 * IE9 由于rgba和filter都支持，会导致两个颜色叠加，使用hack去除 
+		 * \9 代表 IE9 以下浏览器支持
+		 * :root 只有 IE9+ 以及其他现代浏览器支持
+		 * IE10 以上不再支持 filter
+		*/
+		filter:none;
+	}
+}
+
+//图片精灵需要用到的
+#sp(@w,@h,@x,@y){
+	height:@h*1px;
+	width:@w*1px;
+	background-position: @x*-1px @y*-1px;
+}
+
+///*
+//自适应的按钮
+//参数:高,内边距,图片路径,行高
+//html:a.btn>span{按钮1}
+//*/
+#BtnAdapt(@h,@p,@aw,@url){	#td-n; line-height:@h; margin-right:@aw; #bp-tL(left,top); 
+			            	&,span{ #d-ib; #bi(@url); height:@h;  }
+						span{ #bp-tL(right,bottom); padding:0 @p 0 (@p - @aw); #o-h; #p-rL(@aw); }}
+
+
+
+

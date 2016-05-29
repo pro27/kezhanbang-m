@@ -1,0 +1,167 @@
+@charset "utf-8";
+/*支付表格*/
+.pay-table {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  width: 100%;
+}
+.pay-table th,
+.pay-table td {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  width: 50%;
+}
+.pay-table th {
+  color: #333;
+}
+.pay-table .s_price {
+  color: #f00;
+}
+/*支付方式*/
+.pay-way .bt {
+  height: auto;
+  padding: 0.5em 0;
+  font-size: 18px;
+}
+/*购物车表格*/
+.cart-table {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  width: 100%;
+}
+.cart-table th,
+.cart-table td {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+.cart-table thead {
+  text-align: center;
+  color: #808080;
+}
+.cart-table tbody {
+  color: #333;
+}
+.cart-table .s_num {
+  width: 20%;
+}
+/*购物车列表*/
+.cart-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+.cart-list .s_chk,
+.cart-list .s_del {
+  padding: 0 10px;
+  line-height: 98px;
+}
+.cart-list .s_img {
+  margin-right: 10px;
+  height: 98px;
+  width: 98px;
+  border: 1px solid #ddd;
+}
+.cart-list .s_img img {
+  width: 100%;
+  height: 100%;
+}
+.cart-list .s_txt {
+  position: relative;
+  line-height: 1.5;
+  height: 98px;
+  color: #333;
+}
+.cart-list .s_txt strong {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cart-list .s_txt em {
+  position: absolute;
+  top: 2.5em;
+  color: #a94442;
+}
+.cart-list .s_txt .s_num {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 32px;
+}
+.cart-list .s_txt .int-group {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.cart-list .s_txt input,
+.cart-list .s_txt button {
+  display: inline-block;
+  height: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 32px;
+}
+.cart-list .s_txt input {
+  width: 4em;
+  text-align: center;
+  margin: 0 -1px;
+  position: relative;
+}
+.cart-list .s_txt button {
+  width: 2em;
+  background-color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+/*购物车底部*/
+.cart-ft {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 2.5em;
+  border-top: 1px solid #e7e7e7;
+  background-color: #f8f8f8;
+}
+.cart-ft strong {
+  color: #a94442;
+}
+.cart-ft .bt {
+  vertical-align: top;
+}
+/*年卡*/
+.card-year {
+  display: block;
+}
+.card-year input {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+.card-year span {
+  font-size: 24px;
+  color: #000;
+  border: 1px solid #000;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  position: relative;
+  display: block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.card-year em {
+  color: #a94442;
+  font-size: 1.5em;
+  font-style: italic;
+}
+.card-year i {
+  position: absolute;
+  right: 8%;
+  bottom: 1.5em;
+  font-size: 16px;
+  color: #666;
+  line-height: 1;
+}
+.card-year input:checked + span {
+  border-color: #f00;
+  background-color: #f5f5f5;
+}

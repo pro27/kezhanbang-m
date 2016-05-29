@@ -1,0 +1,33 @@
+@charset "utf-8";
+.weather {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.weather strong {
+  display: block;
+  font-size: 1.2em;
+}
+.nav a {
+  color: #999;
+}
+.nav a + a {
+  margin-left: 1em;
+}
+.keyword-f {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+.keywords h3 {
+  font-size: 1.5em;
+  color: #999;
+}
+.keywords .menu {
+  margin: 0 -2% 0;
+}
+.keywords .menu li {
+  width: 50%;
+  padding: 0 2%;
+  float: left;
+  display: inline;
+}

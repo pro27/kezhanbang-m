@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import "../../../27less/_27.style.less";
+input[type="text"], button, textarea, select { border: 1px solid #ccc; #radius(5px); padding: 0.5em; width: 100%; background-color: #fff; }
+input[type="text"], button, select { height: 40px; }
+textarea { height: 6em; }
+.f-row { line-height: 34px;
+	+ .f-row { margin-top: 1em; }
+}
+.int-group { font-size: 0;
+	input, button, select { #radius(0); margin-right: -1px; }
+	.int-f { #radius(5px 0 0 5px); }
+	.int-l { #radius(0 5px 5px 0); }
+}
+.f-inline { label { float: left; margin-right: 1em; width: 4em; }
+}
+.captcha { font-size: 0;
+	input { width: 60%; #radius(5px 0 0 5px); margin-right: -1px; }
+	button { width: 40%; #radius(0 5px 5px 0); }
+}
