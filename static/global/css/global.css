@@ -1015,11 +1015,28 @@ textarea {
 .intro-nav a.on {
   background-color: #e6e6e6;
 }
-.swiper-wrapper img {
+.swiper-container {
+  height: 276px;
+}
+.swiper-container img {
   height: 100%;
   width: auto;
   display: block;
   margin: 0 auto;
+}
+.swiper-pagination {
+  position: static;
+  padding-top: 5px;
+}
+.swiper-pagination img {
+  height: 30px;
+  width: auto;
+}
+.swiper-pagination-bullet {
+  width: auto;
+  height: 30px;
+  border-radius: 0;
+  margin-right: 5px;
 }
 /*弹出框*/
 .modal {

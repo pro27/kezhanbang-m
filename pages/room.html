@@ -3,37 +3,42 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>客栈帮</title>
-		<link rel="stylesheet" href="../static/global/css/global.css">
+		<title>客栈帮</title>		
 		<link rel="stylesheet" href="../static/global/css/swiper.min.css">
+		<link rel="stylesheet" href="../static/global/css/global.css">
 		<link rel="stylesheet" href="../static/pro/css/pro.css">
 	</head>
 	<body>
 		<div id="page" class="page-footer">
-			<div class="room-swiper swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/1.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/2.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/3.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/4.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
+			<div class="room-swiper mb2em pr">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="../static/pro/img/1.jpg" height="318" width="480" alt="">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="../static/pro/img/2.jpg" height="318" width="480" alt="">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="../static/pro/img/3.jpg" height="318" width="480" alt="">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
+						<div class="swiper-slide">
+							<img class="swiper-lazy" data-src="../static/pro/img/4.jpg" height="318" width="480" alt="">
+							<div class="swiper-lazy-preloader"></div>
+						</div>
 					</div>
 				</div>
-				<div class="swiper-pagination"></div>
+				<div class="swiper-pagination">
+				</div>
 			</div>
+			
+
 			<div class="wrap">
 				<div class="room-hd">
-					<h2>莎朗风情酒店-迷宫式羌文化主题酒店</h2>
+					<h2 class="ell">莎朗风情酒店-迷宫式羌文化主题酒店</h2>
 					<p>红色月亮下，遗世的羌族古堡。</p>
 				</div>
 				<p class="room-nav tar j-tab">
@@ -179,11 +184,32 @@
 		<script src="../static/global/js/global.js"></script>
 		<script>
 			$(function(){
-				var mySwiper = new Swiper('.room-swiper', {
-					autoplay: 5000,
-					lazyLoading : true,
-					lazyLoadingInPrevNext : true,
-					pagination : '.swiper-pagination',
+				var mySwiper = new Swiper('.room-swiper .swiper-container', {
+					autoplay: 3000,
+					lazyLoading: true,
+					lazyLoadingInPrevNext: true,
+					pagination: '.room-swiper .swiper-pagination',
+					paginationClickable: true,
+					paginationBulletRender:function (index, className) {
+						var img='';
+						switch (index) {
+							case 0:
+								img = '<img src="../static/pro/img/1.jpg" height="30" width="30" alt="">';
+								break;
+							case 1:
+								img = '<img src="../static/pro/img/2.jpg" height="30" width="30" alt="">';
+								break;
+							case 2:
+								img = '<img src="../static/pro/img/3.jpg" height="30" width="30" alt="">';
+								break;
+							case 3:
+								img = '<img src="../static/pro/img/4.jpg" height="30" width="30" alt="">';
+								break;
+							default:
+								img = '';
+						}
+						return '<span class="' + className + '">' + img + '</span>';
+					}
 				});
 			});
 		</script>
