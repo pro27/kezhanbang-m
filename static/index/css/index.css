@@ -9,9 +9,23 @@
 }
 .nav a {
   color: #999;
+  position: relative;
+}
+.nav a .i-arrow-d {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -9px;
+  visibility: hidden;
 }
 .nav a + a {
   margin-left: 1em;
+}
+.nav a.on {
+  color: #ff6259;
+}
+.nav a.on .i-arrow-d {
+  visibility: visible;
 }
 .keyword-f {
   border-bottom: 1px solid #ddd;

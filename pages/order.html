@@ -10,26 +10,11 @@
 	</head>
 	<body>
 		<div id="page" class="page-footer">
-			<div class="room-swiper swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/1.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/2.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/3.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-					<div class="swiper-slide">
-						<img class="swiper-lazy" data-src="../static/pro/img/4.jpg" height="318" width="480" alt="">
-						<div class="swiper-lazy-preloader"></div>
-					</div>
-				</div>
-				<div class="swiper-pagination"></div>
+			<div class="mb2em">
+				<img class="fix-img mb10" src="../static/pro/img/1.jpg" height="318" width="480" alt="">
+				<img class="fix-img mb10" src="../static/pro/img/2.jpg" height="318" width="480" alt="">
+				<img class="fix-img mb10" src="../static/pro/img/3.jpg" height="318" width="480" alt="">
+				<img class="fix-img mb10" src="../static/pro/img/4.jpg" height="318" width="480" alt="">
 			</div>
 			<div class="wrap">
 				<div class="order-info">
@@ -43,7 +28,7 @@
 							<a href="">订单信息</a>
 						</div>
 						<div class="card-bd f-inline">
-							<a href="javascript:;" class="i i-del"></a>
+							<a href="javascript:;" class="i i-del j-del-room"></a>
 							<p class="f-row cf">
 								<label>房间类型</label>
 								<span class="cell">
@@ -60,20 +45,14 @@
 							</p>
 							<p class="f-row">
 								<label>入住日期</label>
-								<span class="int-group cell"><input class="int-time" type="text" placeholder="入住时间"> <input type="text" class="int-nights tac" placeholder="0晚"></span>
+								<span class="int-group cell">
+									<input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间"> 
+									<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>
 							</p>
-							<div class="date-box">
-								<div class="s_bd tac">日期控件</div>
-								<div class="s_ft tar">
-									<a href="" class="bt bt-default">确定</a>
-								</div>
-							</div>
 							<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="&yen;0.00"></span></p>
 						</div>
-					</div>
-					<div class="card order-detail">
 						<div class="card-bd f-inline">
-							<a href="javascript:;" class="i i-del"></a>
+							<a href="javascript:;" class="i j-del-room"></a>
 							<p class="f-row cf">
 								<label>房间类型</label>
 								<span class="cell">
@@ -90,20 +69,15 @@
 							</p>
 							<p class="f-row">
 								<label>入住日期</label>
-								<span class="int-group cell"><input class="int-time" type="text" placeholder="入住时间"> <input type="text" class="int-nights tac" placeholder="0晚"></span>
+								<span class="int-group cell">
+									<input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间">
+									<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>
 							</p>
-							<div class="date-box">
-								<div class="s_bd tac">日期控件</div>
-								<div class="s_ft tar">
-									<a href="" class="bt bt-default">确定</a>
-								</div>
-							</div>
 							<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="&yen;0.00"></span></p>
 						</div>
 					</div>
-					
 					<div class="room-add tar">
-						<a href="#" class="i i-plus"></a>
+						<a href="#" class="i i-plus j-add-room"></a>
 					</div>
 					<div class="card">
 						<div class="card-hd">
@@ -134,7 +108,7 @@
 									<input type="text" placeholder="请输入验证码"><button type="button">获取验证码</button></span>
 								</p>
 								<p class="f-row cf">
-									<label>验证码</label><span class="captcha cell"><input type="text" placeholder="请输入验证码"><button type="button" class="dis">重新获取(60)</button></span>
+									<label>验证码</label><span class="captcha cell"><input type="text" placeholder="请输入验证码"><button type="button" class="dis">获取(60)</button></span>
 								</p>
 								<div class="tar mb1em mt1em"><button type="button" class="bt bt-danger">确认使用</button></div>
 								<div class="tar">
@@ -151,8 +125,11 @@
 					</form>
 				</div>
 			</div>
+			<div class="fix-rt">
+				<a href="#" class="i i-chat"></a>
+			</div>
 			<div class="footer">
-				<p class="copyright wrap">&copy;2014  客栈帮 版权所有  指路  加入</p>
+				<p class="copyright wrap">&copy;2014  www.wzdfykz.com 版权所有</p>
 				<div class="tools cf wrap">
 					<div class="fl">
 						<a href="#" class="i i-tag"></a>
@@ -165,6 +142,126 @@
 					</div>
 				</div>
 			</div>
+			<form id="dateModal" class="modal trans">
+				<div class="modal-mn trans">
+					<a href="javascript:;" class="modal-close">&times;</a>
+					<div class="modal-hd">
+						<h3>选择人住日期</h3>
+					</div>
+					<div class="modal-bd lh1d8">
+						<div class="date-box">
+							<div class="s_hd tac pr">
+								<select class="s_year" name="year">
+									<option value="">2015</option>
+									<option value="">2016</option>
+								</select>
+								年
+								<select class="s_month" name="month">
+									<option value="">8</option>
+									<option value="">7</option>
+								</select>
+								月
+								<a href="javascript:;" class="i i-date-l"></a>
+								<a href="javascript:;" class="i i-date-r"></a>
+							</div>
+							<table class="s_bd">
+								<thead>
+									<tr>
+										<th>日</th>
+										<th>一</th>
+										<th>二</th>
+										<th>三</th>
+										<th>四</th>
+										<th>五</th>
+										<th>六</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&nbsp;</td>
+										<td> 01 <span>168<br>
+										元/晚</span></td>
+										<td> 02 <span>168<br>
+										元/晚</span></td>
+										<td> 03 <span>168<br>
+										元/晚</span></td>
+										<td> 04 <span>168<br>
+										元/晚</span></td>
+										<td> 05 <span>168<br>
+										元/晚</span></td>
+										<td> 06 <span>168<br>
+										元/晚</span></td>
+									</tr>
+									<tr>
+										<td> 07 <span>168<br>
+										元/晚</span></td>
+										<td> 08 <span>168<br>
+										元/晚</span></td>
+										<td> 09 <span>168<br>
+										元/晚</span></td>
+										<td> 10 <span>168<br>
+										元/晚</span></td>
+										<td> 11 <span>168<br>
+										元/晚</span></td>
+										<td> 12 <span>168<br>
+										元/晚</span></td>
+										<td> 13 <span>168<br>
+										元/晚</span></td>
+									</tr>
+									<tr>
+										<td> 14 <span>168<br>
+										元/晚</span></td>
+										<td> 15 <span>168<br>
+										元/晚</span></td>
+										<td> 16 <span>168<br>
+										元/晚</span></td>
+										<td> 17 <span>168<br>
+										元/晚</span></td>
+										<td class="on"> 18 <span>168<br>
+										元/晚</span></td>
+										<td> 19 <span>168<br>
+										元/晚</span></td>
+										<td> 20 <span>168<br>
+										元/晚</span></td>
+									</tr>
+									<tr>
+										<td> 21 <span>168<br>
+										元/晚</span></td>
+										<td> 22 <span>168<br>
+										元/晚</span></td>
+										<td> 23 <span>168<br>
+										元/晚</span></td>
+										<td> 24 <span>168<br>
+										元/晚</span></td>
+										<td> 25 <span>168<br>
+										元/晚</span></td>
+										<td> 26 <span>168<br>
+										元/晚</span></td>
+										<td> 27 <span>168<br>
+										元/晚</span></td>
+									</tr>
+									<tr>
+										<td> 28 <span>168<br>
+										元/晚</span></td>
+										<td> 29 <span>168<br>
+										元/晚</span></td>
+										<td> 30 <span>168<br>
+										元/晚</span></td>
+										<td> 31 <span>168<br>
+										元/晚</span></td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="modal-ft cf">
+						<a href="javascript:;" class="bt bt-default fr j-close">确定</a>
+					</div>
+				</div>
+			</form>
 			<div id="proMenu" class="pro-menu wrap trans">
 				<a href="" class="bt bt-ghost">云端的日子</a>
 				<a href="" class="bt bt-ghost">如何到客栈</a>
@@ -173,17 +270,45 @@
 				<a href="" class="bt bt-ghost">土产风物</a>
 			</div>
 			<script src="../static/global/js/zepto.min.js"></script>
-			<script src="../static/global/js/swiper-3.3.1.jquery.min.js"></script>
+			<script src="../static/global/js/datePicker.js"></script>
 			<script src="../static/global/js/global.js"></script>
-			<script>
+			<script type="text/javascript">
 				$(function(){
-					var mySwiper = new Swiper('.room-swiper', {
-						autoplay: 5000,
-						lazyLoading : true,
-						lazyLoadingInPrevNext : true,
-						pagination : '.swiper-pagination',
+					var $roomBox=$('.order-detail');
+					var roomHtml='<div class="card-bd f-inline">'+
+								'<a href="javascript:;" class="i i-del j-del-room"></a>'+
+								'<p class="f-row cf">'+
+										'<label>房间类型</label>'+
+										'<span class="cell">'+
+												'<select>'+
+														'<option value="2950101" label="商务标间">商务标间</option>'+
+														'<option value="2950102" selected="selected" label="商务单间">商务单间</option>'+
+														'<option value="2950103" label="豪华标间">豪华标间</option>'+
+														'<option value="2950104" label="豪华单间">豪华单间</option>'+
+														'<option value="2950105" label="商务套房">商务套房</option>'+
+														'<option value="2950106" label="豪华套房（一）">豪华套房（一）</option>'+
+														'<option value="2950107" label="豪华套房（二）">豪华套房（二）</option>'+
+												'</select>'+
+										'</span>'+
+								'</p>'+
+								'<p class="f-row">'+
+										'<label>入住日期</label>'+
+										'<span class="int-group cell"><input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间">'+
+										'<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>'+
+								'</p>'+
+								'<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="¥0.00"></span></p>'+
+						'</div>';
+					//删除房间
+					$('body').on('click', '.j-del-room', function(e) {
+						e.preventDefault();
+						var $it = $(this);
+						var $box = $it.parents('.card-bd');
+						$box.remove();
+					}).on('click', '.j-add-room', function(e) {
+						e.preventDefault();
+						$roomBox.append(roomHtml);
 					});
-				});
+					});
 			</script>
 		</body>
 	</html>

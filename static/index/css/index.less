@@ -7,8 +7,13 @@
 }
 
 .nav{
-	a{ color: #999; }
+	a{ color: #999; position: relative;
+		.i-arrow-d{ position: absolute; top: 100%; left: 50%; margin-left: -9px; visibility: hidden; }
+	}
 	a + a{ margin-left: 1em; }
+	a.on{ color:#ff6259;
+		.i-arrow-d{ visibility: visible; }
+	}
 }
 .keyword-f{
 	border-bottom: 1px solid #ddd; 

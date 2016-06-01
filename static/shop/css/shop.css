@@ -108,6 +108,7 @@
 }
 .search label {
   text-align: right;
+  width: 3em;
 }
 /*联系我们*/
 .contact-hd {
