@@ -1207,7 +1207,7 @@ i,
   color: #fff;
 }
 .date-box td span {
-  display: inline-block;
+  display: block;
   margin-top: 1em;
   text-align: left;
 }
