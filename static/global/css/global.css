@@ -652,9 +652,14 @@ body {
 img {
   max-width: 100%;
 }
-input,
+select,
+input[type="text"],
+input[type="password"],
 textarea {
   -webkit-appearance: none;
+}
+select {
+  background: #ffffff url(../img/i/arrow.png) 98% 50% no-repeat;
 }
 a {
   color: #337ab7;
@@ -929,6 +934,9 @@ textarea {
 .card {
   margin-bottom: 2em;
 }
+.card .date-box {
+  margin: 10px -2%;
+}
 .card-hd {
   font-size: 0;
 }
@@ -1182,6 +1190,8 @@ i,
 }
 .date-box {
   position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
 .date-box table {
   width: 100%;
@@ -1199,7 +1209,7 @@ i,
 .date-box td span {
   display: inline-block;
   margin-top: 1em;
-  display: none;
+  text-align: left;
 }
 .date-box tbody {
   border-top: 1px solid #ddd;
@@ -1214,6 +1224,9 @@ i,
   line-height: 1;
   color: #999;
 }
+.date-box td .s_em {
+  color: #f00;
+}
 .date-box .i-date-l,
 .date-box .i-date-r {
   position: absolute;
@@ -1227,8 +1240,9 @@ i,
   right: 0;
 }
 .date-box .s_hd {
-  padding: 10px;
+  padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  margin: 0 2%;
 }
 .date-box .s_hd select {
   height: 28px;
@@ -1240,4 +1254,13 @@ i,
 }
 .date-box .s_hd .s_month {
   width: 4em;
+}
+.date-box .s_bd {
+  padding: 0 2% 10px;
+}
+.date-box .s_ft {
+  text-align: right;
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+  padding: 10px 2%;
 }

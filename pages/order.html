@@ -47,8 +47,10 @@
 								<label>入住日期</label>
 								<span class="int-group cell">
 									<input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间"> 
-									<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>
+									<input type="text" class="int-l int-nights tac" placeholder="0晚">
+								</span>
 							</p>
+
 							<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="&yen;0.00"></span></p>
 						</div>
 						<div class="card-bd f-inline">
@@ -142,126 +144,6 @@
 					</div>
 				</div>
 			</div>
-			<form id="dateModal" class="modal trans">
-				<div class="modal-mn trans">
-					<a href="javascript:;" class="modal-close">&times;</a>
-					<div class="modal-hd">
-						<h3>选择人住日期</h3>
-					</div>
-					<div class="modal-bd lh1d8">
-						<div class="date-box">
-							<div class="s_hd tac pr">
-								<select class="s_year" name="year">
-									<option value="">2015</option>
-									<option value="">2016</option>
-								</select>
-								年
-								<select class="s_month" name="month">
-									<option value="">8</option>
-									<option value="">7</option>
-								</select>
-								月
-								<a href="javascript:;" class="i i-date-l"></a>
-								<a href="javascript:;" class="i i-date-r"></a>
-							</div>
-							<table class="s_bd">
-								<thead>
-									<tr>
-										<th>日</th>
-										<th>一</th>
-										<th>二</th>
-										<th>三</th>
-										<th>四</th>
-										<th>五</th>
-										<th>六</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>&nbsp;</td>
-										<td> 01 <span>168<br>
-										元/晚</span></td>
-										<td> 02 <span>168<br>
-										元/晚</span></td>
-										<td> 03 <span>168<br>
-										元/晚</span></td>
-										<td> 04 <span>168<br>
-										元/晚</span></td>
-										<td> 05 <span>168<br>
-										元/晚</span></td>
-										<td> 06 <span>168<br>
-										元/晚</span></td>
-									</tr>
-									<tr>
-										<td> 07 <span>168<br>
-										元/晚</span></td>
-										<td> 08 <span>168<br>
-										元/晚</span></td>
-										<td> 09 <span>168<br>
-										元/晚</span></td>
-										<td> 10 <span>168<br>
-										元/晚</span></td>
-										<td> 11 <span>168<br>
-										元/晚</span></td>
-										<td> 12 <span>168<br>
-										元/晚</span></td>
-										<td> 13 <span>168<br>
-										元/晚</span></td>
-									</tr>
-									<tr>
-										<td> 14 <span>168<br>
-										元/晚</span></td>
-										<td> 15 <span>168<br>
-										元/晚</span></td>
-										<td> 16 <span>168<br>
-										元/晚</span></td>
-										<td> 17 <span>168<br>
-										元/晚</span></td>
-										<td class="on"> 18 <span>168<br>
-										元/晚</span></td>
-										<td> 19 <span>168<br>
-										元/晚</span></td>
-										<td> 20 <span>168<br>
-										元/晚</span></td>
-									</tr>
-									<tr>
-										<td> 21 <span>168<br>
-										元/晚</span></td>
-										<td> 22 <span>168<br>
-										元/晚</span></td>
-										<td> 23 <span>168<br>
-										元/晚</span></td>
-										<td> 24 <span>168<br>
-										元/晚</span></td>
-										<td> 25 <span>168<br>
-										元/晚</span></td>
-										<td> 26 <span>168<br>
-										元/晚</span></td>
-										<td> 27 <span>168<br>
-										元/晚</span></td>
-									</tr>
-									<tr>
-										<td> 28 <span>168<br>
-										元/晚</span></td>
-										<td> 29 <span>168<br>
-										元/晚</span></td>
-										<td> 30 <span>168<br>
-										元/晚</span></td>
-										<td> 31 <span>168<br>
-										元/晚</span></td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="modal-ft cf">
-						<a href="javascript:;" class="bt bt-default fr j-close">确定</a>
-					</div>
-				</div>
-			</form>
 			<div id="proMenu" class="pro-menu wrap trans">
 				<a href="" class="bt bt-ghost">云端的日子</a>
 				<a href="" class="bt bt-ghost">如何到客栈</a>
@@ -269,6 +151,119 @@
 				<a href="" class="bt bt-ghost">下一栈去哪儿</a>
 				<a href="" class="bt bt-ghost">土产风物</a>
 			</div>
+			<script id="dateTpl" type="text/html">
+				<div class="date-box">
+					<div class="s_hd tac pr">
+						<select class="s_year" name="year">
+							<option value="">2015</option>
+							<option value="">2016</option>
+						</select>
+						年
+						<select class="s_month" name="month">
+							<option value="">8</option>
+							<option value="">7</option>
+						</select>
+						月
+						<a href="javascript:;" class="i i-date-l"></a>
+						<a href="javascript:;" class="i i-date-r"></a>
+					</div>
+					<div class="s_bd">
+					<table>
+						<thead>
+							<tr>
+								<th>日</th>
+								<th>一</th>
+								<th>二</th>
+								<th>三</th>
+								<th>四</th>
+								<th>五</th>
+								<th>六</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>&nbsp;</td>
+								<td> 01 <span>168<br>
+								元/晚</span></td>
+								<td> 02 <span>168<br>
+								元/晚</span></td>
+								<td> 03 <span>168<br>
+								元/晚</span></td>
+								<td> 04 <span>168<br>
+								元/晚</span></td>
+								<td> 05 <span>168<br>
+								元/晚</span></td>
+								<td> 06 <span>168<br>
+								元/晚</span></td>
+							</tr>
+							<tr>
+								<td> 07 <span>168<br>
+								元/晚</span></td>
+								<td> 08 <span>168<br>
+								元/晚</span></td>
+								<td> 09 <span class="s_em">已够完</span></td>
+								<td> 10 <span>168<br>
+								元/晚</span></td>
+								<td> 11 <span>168<br>
+								元/晚</span></td>
+								<td> 12 <span>168<br>
+								元/晚</span></td>
+								<td> 13 <span>168<br>
+								元/晚</span></td>
+							</tr>
+							<tr>
+								<td> 14 <span>168<br>
+								元/晚</span></td>
+								<td> 15 <span>168<br>
+								元/晚</span></td>
+								<td> 16 <span>168<br>
+								元/晚</span></td>
+								<td> 17 <span>168<br>
+								元/晚</span></td>
+								<td class="on"> 18 <span>168<br>
+								元/晚</span></td>
+								<td> 19 <span>168<br>
+								元/晚</span></td>
+								<td> 20 <span>168<br>
+								元/晚</span></td>
+							</tr>
+							<tr>
+								<td> 21 <span>168<br>
+								元/晚</span></td>
+								<td> 22 <span>168<br>
+								元/晚</span></td>
+								<td> 23 <span>168<br>
+								元/晚</span></td>
+								<td> 24 <span>168<br>
+								元/晚</span></td>
+								<td> 25 <span>168<br>
+								元/晚</span></td>
+								<td> 26 <span>168<br>
+								元/晚</span></td>
+								<td> 27 <span>168<br>
+								元/晚</span></td>
+							</tr>
+							<tr>
+								<td> 28 <span>168<br>
+								元/晚</span></td>
+								<td> 29 <span>168<br>
+								元/晚</span></td>
+								<td> 30 <span>168<br>
+								元/晚</span></td>
+								<td> 31 <span>168<br>
+								元/晚</span></td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="s_ft">
+						<a href="javascript:;" class="bt bt-default j-date-sub">确定</a>
+					</div>
+				</div>
+			</script>
 			<script src="../static/global/js/zepto.min.js"></script>
 			<script src="../static/global/js/datePicker.js"></script>
 			<script src="../static/global/js/global.js"></script>
@@ -308,7 +303,7 @@
 						e.preventDefault();
 						$roomBox.append(roomHtml);
 					});
-					});
+				});
 			</script>
 		</body>
 	</html>

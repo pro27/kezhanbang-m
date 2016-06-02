@@ -5,22 +5,29 @@
 .i-date-r{ background-image: url('../img/i-date/right.png'); }
 
 .date-box {
-	position:relative;
+	position:relative; background-color: #fff; border:1px solid #ddd;
 	table{ width: 100%; color: #333; }
-	th{  }
 	th,td{ padding: 5px 3px; text-align: center; }
 	td.on{ background-color: #000; color: #fff; }
-	td span{ display: inline-block; margin-top: 1em; display: none; }
+	td span{ display: inline-block; margin-top: 1em; text-align: left; }
 	tbody{ border-top: 1px solid #ddd; border-right: 1px solid #ddd; }
 	td{ border-left: 1px solid #ddd; border-bottom: 1px solid #ddd; }
 	td span{ font-size: 12px; line-height: 1; color: #999; } 
+	td .s_em{ color: #f00; }
 	.i-date-l, .i-date-r{ position: absolute; top: 50%; margin-top: -13px; }
 	.i-date-l{ left: 0; }
-	.i-date-r{ right: 0; }
+	.i-date-r{ right: 0; }	
 	.s_hd {
-		padding: 10px; border-bottom: 1px solid #ddd; 
+		padding: 10px 0; border-bottom: 1px solid #ddd; margin: 0 2%; 
 		select{ height: 28px; padding-top: 0; padding-bottom: 0; }
 		.s_year{ width: 5em; }
 		.s_month{ width: 4em; }
+	}
+	.s_bd{ padding: 0 2% 10px;}
+
+	.s_ft{
+		text-align: right;
+		border-top: 1px solid #ddd; background-color: #f5f5f5;
+		padding: 10px 2%;
 	}
 }
