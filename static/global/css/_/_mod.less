@@ -67,6 +67,12 @@
     border-radius: 0;
     margin-right: 5px;
 }
+/*chk-tag*/
+.chk-tag{ position: relative;
+	input{ position: absolute; visibility: hidden; }
+	input:checked + span{ border-color: #08c; color: #08c;}
+	span{ border:1px solid #ddd; display: inline-block; height: 30px; padding: 0 20px; #radius(15px); margin: 5px; }
+}
 
 /*弹出框*/
 .modal { z-index: 105; position: absolute; height: 100%; width: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); visibility: hidden; opacity: 0;

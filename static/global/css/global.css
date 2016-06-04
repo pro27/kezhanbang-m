@@ -1043,6 +1043,27 @@ textarea {
   border-radius: 0;
   margin-right: 5px;
 }
+/*chk-tag*/
+.chk-tag {
+  position: relative;
+}
+.chk-tag input {
+  position: absolute;
+  visibility: hidden;
+}
+.chk-tag input:checked + span {
+  border-color: #08c;
+  color: #08c;
+}
+.chk-tag span {
+  border: 1px solid #ddd;
+  display: inline-block;
+  height: 30px;
+  padding: 0 20px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  margin: 5px;
+}
 /*弹出框*/
 .modal {
   z-index: 105;
