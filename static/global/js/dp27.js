@@ -24,7 +24,7 @@
 			return html;
 		},
 		afterSel: function($it, info) {
-			console.log(info);
+			// console.log(info);
 		}
 	};
 
@@ -154,7 +154,7 @@
 		var _o = _it.opt;
 		_o.data = data;
 		_it.setHtml();
-		console.log(_o);
+		// console.log(_o);
 	};
 
 	Obj.prototype.next = function() {
