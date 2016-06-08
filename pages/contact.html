@@ -14,10 +14,11 @@
 				<p>商务单间共12间，客房...</p>
 			</div>
 			<form action="">
-				<p class="f-row int-group contact-date">
-					<input type="text" class="int-f tac" placeholder="请选择计划入住时间">
-					<input type="text" class="int-l tac" placeholder="0晚">
+				<p class="f-row int-group contact-date mb10">
+					<input type="text" name="intime" class="int-f tac j-date" placeholder="请选择计划入住时间">
+					<input type="text" name="day" class="int-l tac" placeholder="0晚">
 				</p>
+				<div id="date" class="date-box"></div>
 				<p class="f-row">
 					<label>您的称呼</label>
 					<input type="text" placeholder="请输入您的称呼">
@@ -34,5 +35,34 @@
 				</p>
 			</form>
 		</div>
+		<script src="../static/global/js/zepto.min.js"></script>
+		<script src="../static/global/js/dp27.js"></script>
+		<script src="../static/global/js/global.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//时间插件配置
+				var dpOpt = {
+					getData: function(year, month, callback) {
+						$.getJSON('data.json', function(data) {
+							callback(data);
+						});
+					},
+					afterSel: function($it, info) {
+						var $row = $it.prev('.f-row');
+						$row.find('input[name="intime"]').val(info ? (info.month + '/' + info.startDay) : '');
+						$row.find('input[name="day"]').val((info ? info.len : 0) + '晚');
+					}
+				};
+				//初始化
+				var $date = $('#date').hide();
+
+				$date.dp27(dpOpt);
+				//删除房间
+				$('body').on('click', '.j-date', function() {
+					var $it = $(this).blur();
+					$date.toggle();
+				});
+			});
+		</script>
 	</body>
 </html>

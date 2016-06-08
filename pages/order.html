@@ -46,35 +46,11 @@
 							<p class="f-row">
 								<label>入住日期</label>
 								<span class="int-group cell">
-									<input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间"> 
-									<input type="text" class="int-l int-nights tac" placeholder="0晚">
+									<input class="int-f int-time j-date" name="intime" type="text" placeholder="入住时间"> 
+									<input name="day" type="text" class="int-l int-nights tac" placeholder="0晚">
 								</span>
 							</p>
-
-							<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="&yen;0.00"></span></p>
-						</div>
-						<div class="card-bd f-inline">
-							<a href="javascript:;" class="i j-del-room"></a>
-							<p class="f-row cf">
-								<label>房间类型</label>
-								<span class="cell">
-									<select>
-										<option value="2950101" label="商务标间">商务标间</option>
-										<option value="2950102" selected="selected" label="商务单间">商务单间</option>
-										<option value="2950103" label="豪华标间">豪华标间</option>
-										<option value="2950104" label="豪华单间">豪华单间</option>
-										<option value="2950105" label="商务套房">商务套房</option>
-										<option value="2950106" label="豪华套房（一）">豪华套房（一）</option>
-										<option value="2950107" label="豪华套房（二）">豪华套房（二）</option>
-									</select>
-								</span>
-							</p>
-							<p class="f-row">
-								<label>入住日期</label>
-								<span class="int-group cell">
-									<input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间">
-									<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>
-							</p>
+							<div class="date-box"></div>
 							<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="&yen;0.00"></span></p>
 						</div>
 					</div>
@@ -265,11 +241,14 @@
 				</div>
 			</script>
 			<script src="../static/global/js/zepto.min.js"></script>
-			<script src="../static/global/js/datePicker.js"></script>
+			<script src="../static/global/js/dp27.js"></script>
 			<script src="../static/global/js/global.js"></script>
 			<script type="text/javascript">
 				$(function(){
+					//房间容器
 					var $roomBox=$('.order-detail');
+
+					//房间模板
 					var roomHtml='<div class="card-bd f-inline">'+
 								'<a href="javascript:;" class="i i-del j-del-room"></a>'+
 								'<p class="f-row cf">'+
@@ -288,11 +267,30 @@
 								'</p>'+
 								'<p class="f-row">'+
 										'<label>入住日期</label>'+
-										'<span class="int-group cell"><input class="int-f int-time j-date" rel="#dateModal" type="text" placeholder="入住时间">'+
-										'<input type="text" class="int-l int-nights tac" placeholder="0晚"></span>'+
+										'<span class="int-group cell"><input class="int-f int-time j-date" name="intime" type="text" placeholder="入住时间">'+
+										'<input name="day" type="text" class="int-l int-nights tac" placeholder="0晚"></span>'+
 								'</p>'+
+								'<div class="date-box"></div>'+
 								'<p class="f-row"><label>合计费用</label><span class="cell"><input type="text" placeholder="¥0.00"></span></p>'+
 						'</div>';
+
+					//时间插件配置
+					var dpOpt = {
+						getData: function(year, month, callback) {
+							$.getJSON('data.json', function(data) {
+								callback(data);
+							});
+						},
+						afterSel: function($it, info) {
+							var $row = $it.prev('.f-row');
+							$row.find('input[name="intime"]').val(info ? (info.month + '/' + info.startDay) : '');
+							$row.find('input[name="day"]').val((info ? info.len : 0) + '晚');
+						}
+					};
+
+					//初始化
+					$('.date-box').dp27(dpOpt);
+
 					//删除房间
 					$('body').on('click', '.j-del-room', function(e) {
 						e.preventDefault();
@@ -301,7 +299,13 @@
 						$box.remove();
 					}).on('click', '.j-add-room', function(e) {
 						e.preventDefault();
-						$roomBox.append(roomHtml);
+						var $it = $(roomHtml);
+						$roomBox.append($it);
+						$it.find('.date-box').dp27(dpOpt);
+					}).on('click', '.j-date', function() {
+						var $it = $(this).blur();
+						var $row = $it.parents('.f-row');
+						$row.next('date-box').toggle();
 					});
 				});
 			</script>
