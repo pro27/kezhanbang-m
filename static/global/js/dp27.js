@@ -66,13 +66,13 @@
 		var _it = this;
 		var _o = _it.opt;
 		var data = _o.data;
-		var html = "";
-		if (!(index < monthInfo.week || index > monthInfo.endDay)) {
+		var html = "";		
+		if( index < monthInfo.week  || index > monthInfo.endDay + monthInfo.week -1 ){
+			html = '<td class="s_dis"></td>';
+		}else{
 			var day = index - monthInfo.week;
 			var d = data[day];
 			html = _o.setTd(day + 1, d);
-		} else {
-			html = '<td class="s_dis"> </td>';
 		}
 		return html;
 	};
@@ -81,14 +81,15 @@
 		var _it = this;
 		var _o = _it.opt;
 		var monthInfo = _it.getMonthInfo();
-		var html = '';
-		for (var i = 0; i < 5; i++) {
+		var html = [];
+		var row= Math.ceil((monthInfo.week + monthInfo.endDay) / 7);
+		for (var i = 0; i < row; i++) {
 			var tr = "";
 			for (var k = 0; k < 7; k++) {
 				var index = i * 7 + k;
 				tr += _it.getTdHtml(index, monthInfo);
 			}
-			html += '<tr>' + tr + '</tr>';
+			html += '<tr>' + tr + '</tr>';	
 		}
 		html = '<thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead><tbody>' + html + '</tbody>';
 		html = '<div class="s_bd"><table>' + html + '</table></div>';
@@ -133,12 +134,17 @@
 		_it.render();
 	};
 
-	Obj.prototype.getMonthInfo = function() {
+	Obj.prototype.getMonthInfo = function () {
 		var _it = this;
 		var _o = _it.opt;
+		var getDaysInMonth = function getDaysInMonth(year, month) {
+			month = parseInt(month, 10) + 1;
+			var temp = new Date(year + "/" + month + "/0");
+			return temp.getDate();
+		};
 		return {
 			week: (new Date(_o.year, _o.month - 1, 1)).getDay(),
-			endDay: (new Date(_o.year, _o.month - 1, 0)).getDate()
+			endDay: getDaysInMonth(_o.year, _o.month)
 		};
 	};
 
