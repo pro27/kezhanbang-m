@@ -147,7 +147,51 @@
 				</div>
 			</div>
 		</div>
-		<script src="../static/global/js/zepto.min.js"></script>
+		<div id="letter">A</div>
+		<script src="../static/global/js/jquery.min.js"></script>
+		<script src="../static/global//js/rollletter.js"></script>
 		<script src="../static/global/js/global.js"></script>
+		<script>
+			$(function(){
+
+				//首字母显示影藏
+				var _letter={
+					on:'s_on',
+					speed:1000,
+					timer:false,
+					hide:function(){
+						var _it=this;
+						var $it=_it.$it;
+						$it.text('').removeClass(_it.on);
+					},
+					show:function(chart){						
+						var _it=this;
+						var $it=_it.$it;
+						$it.text(chart).addClass(_it.on);
+						if(_it.timer){
+							clearTimeout(_it.timer);
+						}
+						_it.timer=setTimeout(function(){
+							_it.hide();
+						},_it.speed);
+					},
+					init:function(){
+						var _it=this;
+						var $it=_it.$it=$('#letter');
+					}
+				};
+				_letter.init();			
+
+				//输出首字母
+				$(".menu").rollletter({
+					scroller:'#page',
+					item:'li',
+					chartBox:'strong',
+					showLetter:function(chart){
+						_letter.show(chart);	
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

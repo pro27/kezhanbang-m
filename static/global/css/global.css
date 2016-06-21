@@ -1116,6 +1116,30 @@ textarea {
   font-size: 30px;
   color: #666;
 }
+/*字符提示框*/
+#letter {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 10px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  height: 60px;
+  width: 60px;
+  background-color: #ddd;
+  color: #fff;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#letter.s_on {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0;
+}
 i,
 .i {
   display: inline-block;
