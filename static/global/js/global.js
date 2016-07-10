@@ -1,6 +1,7 @@
 $(function() {
 
 	(function() {
+		var _$body = $('body');
 		$('.j_toClass').each(function(index, el) {
 			var $it = $(this);
 			var targetTo = $it.attr('data-target');
@@ -9,10 +10,12 @@ $(function() {
 			var $target = $(targetId);
 			var _fn = {
 				on: function() {
+					_$body.css('cursor', 'pointer');
 					$target.addClass(targetTo);
 					$it.addClass(thisTo);
 				},
 				off: function() {
+					_$body.css('cursor', 'initial');
 					$target.removeClass(targetTo);
 					$it.removeClass(thisTo);
 				}
@@ -20,14 +23,16 @@ $(function() {
 			targetTo = targetTo && targetTo !== '' ? targetTo : 'on';
 			thisTo = thisTo && thisTo !== '' ? thisTo : 'on';
 			$it.on('click', function(e) {
-				e.preventDefault;
-			}).on('mouseenter', function() {
-				_fn.on();
-				return false;
-			}).on('mouseleave', function() {
-				_fn.off();
+				if ($it.hasClass('on')) {
+					_fn.off();
+				} else {
+					_fn.on();
+				}
 				return false;
 			});
+		});
+		$(document).on('click', function(e) {
+			$('.j_toClass.on').trigger('click');
 		});
 	})();
 

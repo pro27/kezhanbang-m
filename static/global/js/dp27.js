@@ -139,7 +139,9 @@
 		var _o = _it.opt;
 		var getDaysInMonth = function getDaysInMonth(year, month) {
 			month = parseInt(month, 10) + 1;
-			var temp = new Date(year + "/" + month + "/0");
+			var temp = new Date(year + "/" + month + "/1");
+			temp.setMonth(temp.getMonth() + 1);
+			temp.setDate(0);
 			return temp.getDate();
 		};
 		return {
@@ -251,4 +253,4 @@
 		});
 		return this;
 	};
-})(Zepto, window, document);
+})(jQuery, window, document);
