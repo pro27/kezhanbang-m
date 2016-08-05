@@ -676,6 +676,9 @@ a:active {
 .c-small {
   color: #999;
 }
+.c-danger {
+  color: #ff6259;
+}
 .fs1d5 {
   font-size: 1.5em;
 }
@@ -745,6 +748,14 @@ a:active {
 .bt-ghost:active {
   color: #999;
   border-color: #999;
+}
+.bt-gray {
+  border: 1px solid #ddd;
+  color: #999;
+}
+.bt-gray:active {
+  color: #666;
+  border-color: #666;
 }
 .bt-default {
   border: 1px solid #ccc;
@@ -1066,7 +1077,8 @@ textarea {
   border: 1px solid #ddd;
   display: inline-block;
   height: 30px;
-  padding: 0 20px;
+  line-height: 30px;
+  padding: 0 1em;
   -webkit-border-radius: 15px;
   border-radius: 15px;
   margin: 5px;
@@ -1146,6 +1158,11 @@ textarea {
   visibility: visible;
   opacity: 1;
   margin-top: 0;
+}
+.m-hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  height: 0;
 }
 i,
 .i {
