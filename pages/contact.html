@@ -49,6 +49,7 @@
 					},
 					afterSel: function($it, info) {
 						var $row = $it.prev('.f-row');
+						$it.hide();
 						$row.find('input[name="intime"]').val(info ? (info.month + '/' + info.startDay) : '');
 						$row.find('input[name="day"]').val((info ? info.len : 0) + '晚');
 					}

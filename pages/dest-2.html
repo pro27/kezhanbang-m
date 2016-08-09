@@ -12,10 +12,10 @@
 			<p class="cf tar mb20 pt20">
 				<a href="#selectTag" class="bt bt-gray fr j-modal">筛选标签</a>
 			</p>
-			<form action="">
-				<div class="m-dd mb20">
-					<a href="javascript:;">瓦蓝懒人居客栈</a>
-					<p>
+			<ul class="m-accor">
+				<li>
+					<a class="s_hd" href="javascript:;">瓦蓝懒人居客栈</a>
+					<p class="s_bd">
 						<a href="javascript:;">瓦蓝懒人居客栈</a>
 						<a href="javascript:;">110<strong>&yen;135</strong></a>
 						<a href="javascript:;">112<strong>&yen;135</strong></a>
@@ -23,10 +23,10 @@
 						<a href="javascript:;">114<strong>&yen;135</strong></a>
 						<a href="javascript:;">115<strong>&yen;135</strong></a>
 					</p>
-				</div>
-				<div class="m-dd mb20">
-					<a href="javascript:;">瓦蓝懒人居客栈</a>
-					<p>
+				</li>
+				<li>
+					<a class="s_hd" href="javascript:;">瓦蓝懒人居客栈</a>
+					<p class="s_bd">
 						<a href="javascript:;">瓦蓝懒人居客栈</a>
 						<a href="javascript:;">110<strong>&yen;135</strong></a>
 						<a href="javascript:;">112<strong>&yen;135</strong></a>
@@ -34,10 +34,10 @@
 						<a href="javascript:;">114<strong>&yen;135</strong></a>
 						<a href="javascript:;">115<strong>&yen;135</strong></a>
 					</p>
-				</div>
-				<div class="m-dd mb20">
-					<a href="javascript:;">瓦蓝懒人居客栈</a>
-					<p>
+				</li>
+				<li>
+					<a class="s_hd" href="javascript:;">瓦蓝懒人居客栈</a>
+					<p class="s_bd">
 						<a href="javascript:;">瓦蓝懒人居客栈</a>
 						<a href="javascript:;">110<strong>&yen;135</strong></a>
 						<a href="javascript:;">112<strong>&yen;135</strong></a>
@@ -45,10 +45,10 @@
 						<a href="javascript:;">114<strong>&yen;135</strong></a>
 						<a href="javascript:;">115<strong>&yen;135</strong></a>
 					</p>
-				</div>
-				<div class="m-dd mb20">
-					<a href="javascript:;">瓦蓝懒人居客栈</a>
-					<p>
+				</li>
+				<li>
+					<a class="s_hd" href="javascript:;">瓦蓝懒人居客栈</a>
+					<p class="s_bd">
 						<a href="javascript:;">瓦蓝懒人居客栈</a>
 						<a href="javascript:;">110<strong>&yen;135</strong></a>
 						<a href="javascript:;">112<strong>&yen;135</strong></a>
@@ -56,19 +56,8 @@
 						<a href="javascript:;">114<strong>&yen;135</strong></a>
 						<a href="javascript:;">115<strong>&yen;135</strong></a>
 					</p>
-				</div>
-				<div class="m-dd mb20">
-					<a href="javascript:;">瓦蓝懒人居客栈</a>
-					<p>
-						<a href="javascript:;">瓦蓝懒人居客栈</a>
-						<a href="javascript:;">110<strong>&yen;135</strong></a>
-						<a href="javascript:;">112<strong>&yen;135</strong></a>
-						<a href="javascript:;">113<strong>&yen;135</strong></a>
-						<a href="javascript:;">114<strong>&yen;135</strong></a>
-						<a href="javascript:;">115<strong>&yen;135</strong></a>
-					</p>
-				</div>
-			</form>
+				</li>
+			</ul>
 			<p class="cf">	
 				<span class="fl pt5 c-small">去客栈帮发现更多的目的地！</span>
 				<a href="news.html" class="bt bt-gray fr">选择更多</a>
@@ -104,13 +93,14 @@
 			<div class="modal-mn trans">
 				<div class="modal-hd">选择标签</div>
 				<div class="modal-bd">
-				<p class="cf f-row">
+				<p class="cf f-row mb20">
 					<label class="fl mr1em">入住日期</label>
 					<span class="cell">
-						<input type="date" >
+						<input type="text" name="date" class="j-date dest-date">
 					</span>
 				</p>
-				<p class="cf">
+				<div id="date" class="date-box"></div>
+				<p class="cf mt10">
 					<strong class="fl pt5">旅行：</strong> 
 					<span class="cell">
 						<label class="chk-tag"><input type="radio" name="bed"><span>双床</span></label>
@@ -143,21 +133,52 @@
 				</p>
 				</div>
 				<div class="modal-ft tar">
-					<a href="javascript:;" class="bt bt-danger j-close">确定</a>
+					<a href="javascript:;" class="bt bt-default j-close">取消</a>
+					<button type="submit" class="bt bt-danger">确定</button>
 				</div>
 			</div>
 		</form>
-		<script src="../static/global/js/jquery.min.js"></script>
+		<script src="../static/global/js/jquery.min.js"></script>		
+		<script src="../static/global/js/dp27.js"></script>
 		<script src="../static/global/js/global.js"></script>
 		<script>
-			$(function(){
-				$('.m-dd p a').on('click',function(e){
-					e.preventDefault();
-					var $it=$(this);
-					var $box=$it.parents('.m-dd').find('> a');
-					$box.html($it.html());
+		$(function() {
+			$('.m-dd p a').on('click', function(e) {
+				e.preventDefault();
+				var $it = $(this);
+				var $box = $it.parents('.m-dd').find('> a');
+				$box.html($it.html());
+			});
+			//初始化
+			var $date = $('#date').hide();
+			//时间插件配置
+			var dpOpt = {
+				afterSel: function($dp, info, $it) {
+					var $row = $dp.prev('.f-row');
+					var day = $it.attr('data-day');
+					day = day < 10 ? '0' + day : day,
+						$row.find('input[name="date"]').val(info ? (info.year + '/' + info.month + '/' + day) : '');
+					$it.removeClass('on');
+					$dp.hide();
+				}
+			};
+			$date.dp27(dpOpt);
+			//删除房间
+			$('body').on('click', '.j-date', function() {
+				var $it = $(this).blur();
+				$date.toggle();
+			}).on('click', '.m-accor .s_hd', function(e) {
+				e.preventDefault();
+				var $it = $(this);
+				var $li = $it.parent('li');
+				$it.next('.s_bd').slideToggle('fast', function() {
+					$li.toggleClass('s_on');
+				});
+				$li.siblings('.s_on').find('.s_bd').slideToggle('fast', function() {
+					$(this).parents('li').toggleClass('s_on');
 				});
 			});
+		});
 		</script>
 	</body>
 </html>

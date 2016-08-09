@@ -6,8 +6,8 @@
 		month: false,
 		yearLen: 5,
 		on: 'on',
-		getData: function(callback) {
-			callback(data);
+		getData: function(year,month, callback) {
+			callback(false);
 		},
 		getTarget: function($it) {
 			var $target = $it.next();
@@ -16,7 +16,9 @@
 		setTd: function(day, d) {
 			var html = "";
 			var dayString = day < 10 ? '0' + day : day;
-			if (d.opend) {
+			if(!d){
+				html = '<td data-day="' + day + '">' + dayString + '</td>'
+			} else if(d.opend) {
 				html = '<td data-day="' + day + '">' + dayString + '<span>' + d.price + '<br>元/晚</span></td>';
 			} else {
 				html = '<td data-day="' + day + '" class="s_dis">' + dayString + '<span>已购买</span></td>';
@@ -71,7 +73,7 @@
 			html = '<td class="s_dis"></td>';
 		}else{
 			var day = index - monthInfo.week;
-			var d = data[day];
+			var d = data[day]||false;
 			html = _o.setTd(day + 1, d);
 		}
 		return html;
@@ -223,7 +225,7 @@
 					year: _o.year,
 					month: _o.month < 10 ? '0' + _o.month : _o.month,
 					len: $on.length
-				});
+				},$it);
 			} else {
 				_o.afterSel(_o.$it, false);
 			}
