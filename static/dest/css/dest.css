@@ -40,6 +40,11 @@
 .m-accor .s_bd {
   display: none;
 }
+.m-accor .s_bd strong {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
 .m-accor .s_on .s_bd {
   display: block;
 }
